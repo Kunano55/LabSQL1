@@ -44,7 +44,9 @@ FROM Products
 WHERE CategoryID = 1
 
 -- 10. รหัสประเภทสินค้า ชื่อประเภท และรายละเอียดของ สินค้าประเภทเครื่องสำอาง
-
+SELECT CategoryID, CategoryName, Description
+FROM Categories
+WHERE CategoryID = 4
 
 -- 11.คำนำหน้า ชื่อ นามสกุล ของพนักงานที่เป็น Sale Representative
 SELECT Title, FirstName, LastName
@@ -52,13 +54,21 @@ FROM Employees
 WHERE Position = 'Sale Representative'
 
 -- 12. รหัสพนักงาน ชื่อพนักงาน ชื่อผู้ใช้ รหัสผ่าน ของพนักงานทุกคน
-
+SELECT EmployeeID, FirstName, LastName, UserName, Password
+FROM Employees
 
 -- 13. ชื่อผู้ใช้ และรหัสผ่านของพนักงานที่ชื่อก้องนิรันดร์
-
+SELECT UserName, Password
+FROM Employees
+WHERE FirstName = 'ก้องนิรันดร์'
 
 -- 14. รหัสพนักงานที่ออกใบเสร็จหมายเลข 3
+SELECT EmployeeID
+FROM Receipts
+WHERE ReceiptID = 3
 
 
 -- 15. รหัสสินค้า ชื่อสินค้า ราคา ของสินค้าที่มีรหัสประเภท 2, 4
-
+SELECT ProductID, ProductName, UnitPrice
+FROM Products
+WHERE CategoryID IN (2, 4)
