@@ -26,7 +26,7 @@ WHERE productName = 'ยางลบ'
 -- 6. หมายเลขใบเสร็จ วันที่ และ ราคารวม ของใบเสร็จที่ออกก่อนวันที่ 15 ก.พ.
 SELECT *
 FROM Receipts
-WHERE ReceiptDate = '1997-02-05'
+WHERE ReceiptDate = '1997-02-15'
 
 -- 7. รหัสสินค้า ชื่อสินค้า ที่มีจำนวนคงเหลือตั้งแต่ 400 ขึ้นไป
 SELECT ProductID, ProductName
