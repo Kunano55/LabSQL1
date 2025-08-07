@@ -46,7 +46,7 @@ WHERE CategoryID = 1
 -- 10. รหัสประเภทสินค้า ชื่อประเภท และรายละเอียดของ สินค้าประเภทเครื่องสำอาง
 SELECT CategoryID, CategoryName, Description
 FROM Categories
-WHERE CategoryID = 4
+WHERE CategoryName LIKE '%เครื่องสำอาง%'
 
 -- 11.คำนำหน้า ชื่อ นามสกุล ของพนักงานที่เป็น Sale Representative
 SELECT Title, FirstName, LastName
