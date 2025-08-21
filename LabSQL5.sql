@@ -74,3 +74,24 @@ FROM Employees e join Orders o on e.EmployeeID = o.EmployeeID
                  Join Products p on od.ProductID = p.ProductID
 WHERE e.FirstName = 'Nancy'
 Order BY p.ProductID
+
+SELECT DISTINCT c.CompanyName, s.Country
+FROM Suppliers s join Products p on s.SupplierID = p.SupplierID
+                 join [Order Details] od on p.ProductID = od.ProductID
+                 join Orders o on od.OrderID = o.OrderID
+                 join Customers c on o.CustomerID = c.CustomerID
+WHERE c.CompanyName = 'Around the Horn'
+
+SELECT p.ProductID, p.ProductName, sum(Quantity) จำนวนที่ซื้อ
+FROM Products p JOIN [Order Details] od ON p.ProductID = od.ProductID
+                join Orders o on od.OrderID = o.OrderID
+                join Customers c on o.CustomerID = c.CustomerID
+WHERE c.CompanyName = 'Around the Horn'
+GROUP BY p.ProductID, p.ProductName
+ORDER BY p.ProductID
+
+SELECT o.OrderID, e.TitleOfCourtesy+e.FirstName+' '+e.LastName emp_name,
+       round(sum(od.Quantity * od.UnitPrice * (1-od.Discount)),2) TotalCash
+FROM Orders o join Employees e on o.EmployeeID = e.EmployeeID
+              join [Order Details] od on o.OrderID = od.OrderID
+GROUP BY o.OrderID, e.TitleOfCourtesy, e.FirstName, e.LastName
