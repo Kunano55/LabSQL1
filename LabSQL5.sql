@@ -33,3 +33,37 @@ SELECT CompanyName, OrderID
 FROM Orders JOIN Shippers
 ON Shippers.ShipperID=Orders.ShipVia
 WHERE OrderID=10275
+
+SELECT * FROM Orders WHERE OrderID=10275
+SELECT * FROM [Order Details] WHERE OrderID=10275
+
+SELECT ProductName, CompanyName, Country
+FROM Products p JOIN Suppliers s
+ON p.SupplierID=s.SupplierID
+WHERE Country in ('USA', 'UK')
+
+SELECT e.EmployeeID, FirstName, o.OrderID
+FROM Employees e JOIN Orders o
+on e.EmployeeID=o.EmployeeID
+ORDER BY EmployeeID
+
+SELECT O.OederID เลขใบสั่งซื้อ, C.CompanyName ลูกค้า, E.FirsNAme พนักงาน, O.ShipAddress ส่งไปที่
+FROM Orders O 
+JOIN Customers C ON O.CustomerID=C.CustomerID
+JOIN Employees E ON O.EmployeeID=E.EmployeeID
+
+SELECT E.EmployeeID, FirstName, count(*) as [จำนวน order]
+, sum(freight) as [Sum of Freight]
+from Employees e join Orders o on e.EmployeeID = o.EmployeeID
+where year(orderdate) = 1998
+
+SELECT S.CompanyName, count(*) as [จำนวน order]
+FROM Shippers S JOIN Oeders O
+ON S.ShipperID=O.ShipVia
+GROUP BY S.CompanyName
+ORDER BY 2 DESC
+
+SELECT p.ProductID, p.ProductName, Quantity
+FROM Products p JOIN [Order Details] od
+ON p.ProductID=od.ProductID
+GROUP BY p.ProductID, p.ProductName
