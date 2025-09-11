@@ -79,3 +79,9 @@ WHERE ProductID = 78
 
 DELETE FROM Shippers
 WHERE ShipperID = 1
+
+Select * From Employees
+
+SELECT emp.EmployeeID, emp.FirstName, boss.EmployeeID, boss.FirstName
+FROM Employees emp join Employees boss
+ON emp.ReportsTo = boss.EmployeeID
