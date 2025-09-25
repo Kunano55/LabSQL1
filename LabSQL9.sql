@@ -1,5 +1,4 @@
 Create DataBase ZooDB;
-Drop DataBase ZooDB;
 
 Create Table AnimalType(
     animal_type_id Int Not Null,
@@ -77,5 +76,3 @@ Create Table FeedingSchule(
     Foreign Key(food_id) References Food(food_id),
     Foreign Key(keeper_id) References Keeper(keeper_id)
 )
-
-Select * from AnimalType
